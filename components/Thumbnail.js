@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
 
@@ -14,7 +15,7 @@ const Thumbnail = forwardRef( ({ result }, ref) => {
         <div ref={ref} 
         className="p-2 group cursor-pointer transition duration-200
         ease-in transform sm:hover:scale-x-105 hover:z-50">
-            <Image 
+            <Image alt="movie"
                 layout='responsive'
                 src = {
                     `${BASE_URL}${result.backdrop_path || 
