@@ -1,14 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
-import Image from "next/image"
+import Image from "next/image";
 
-function Thumbnail({ result }) {
+import { ThumbUpIcon } from "@heroicons/react/outline";
+import { forwardRef } from "react";
+
+const Thumbnail = forwardRef( ({ result }, ref) => {
     const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
     
    
 
     return (
-        <div className="group cursor-pointer">
+        <div ref={ref} 
+        className="p-2 group cursor-pointer transition duration-200
+        ease-in transform sm:hover:scale-x-105 hover:z-50">
             <Image 
                 layout='responsive'
                 src = {
@@ -29,13 +34,13 @@ function Thumbnail({ result }) {
             <p className="flex items-center opacity-0 group-hover:opacity-100">
                 {result.media_type && `${result.media_type} .`} {" "}
                 {result.release_date || result.first_air_date} . {" "}
-                {/* <ThumbnailUpIcon className="h-5 mx-2" />  */}
+                <ThumbUpIcon className="h-5 mx-2" /> 
                 {result.vote_count}
             </p>
         </div>
 
         </div>
-    )
-}
+    );
+})
 
 export default Thumbnail;
